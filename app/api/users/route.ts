@@ -19,7 +19,6 @@ export async function POST(request: Request) {
     }
 
     // persist user
-    // const prismaClient = new PrismaClient();
     const result = await prismaClient.user.create({
       data: user
     });

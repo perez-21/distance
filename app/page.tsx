@@ -133,7 +133,6 @@ export default function LocationLeaderboard() {
     );
   }, []);
 
-  // 🔁 Short polling effect — refetch nearby users every few seconds
   useEffect(() => {
     if (!currentUser || !location) return;
 
@@ -146,7 +145,7 @@ export default function LocationLeaderboard() {
           location.lng
         );
 
-        // ✅ Only update if there’s an actual difference (prevents flicker)
+        // Only update if there’s an actual difference (prevents flicker)
         setUsers((prev) => {
           const same = JSON.stringify(prev) === JSON.stringify(nearbyUsers);
           return same ? prev : nearbyUsers;
@@ -154,7 +153,7 @@ export default function LocationLeaderboard() {
       } catch (err) {
         console.error("Polling error:", err);
       }
-    }, 10000); // Poll every 10 seconds
+    }, 20000); // Poll every 20 seconds
 
     return () => clearInterval(interval);
   }, [currentUser, location]);

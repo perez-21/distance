@@ -9,7 +9,7 @@ export async function GET(request: Request, { params }: { params: { id: string}}
     return NextResponse.json({ error: 'Invalid user ID' }, { status: 400 })
   }
 
-  // query database
+  // TODO: query database
   
   const user: User = {
     id,
