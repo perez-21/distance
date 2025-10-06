@@ -3,7 +3,7 @@ import { getDistance } from 'geolib';
 import prismaClient from "@/app/lib/prisma";
 
 
-export async function GET(request: Request, { params }: { params: { id: string}}) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string}> }) {
 
   const { id } = await params;
   const { searchParams } = new URL(request.url);

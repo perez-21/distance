@@ -84,7 +84,7 @@ const getNearbyUsers = async (
   lng: number
 ): Promise<User[]> => {
   try {
-    const response = await fetch(`api/users/close/${userId}?lat=${lat}&lng=${lng}`);
+    const response = await fetch(`api/users/${userId}/close?lat=${lat}&lng=${lng}`);
     const data = await response.json();
     if (!data) {
       return await mockGetNearbyUsers(lat, lng);
